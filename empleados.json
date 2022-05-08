@@ -1,0 +1,25 @@
+{
+	"empleados": [{
+        "emp_id": 1,
+		"emp_name": "Beiruc",
+		"emp_lastname": "Perez",
+		"emp_phone": "4421565423",
+		"emp_email": "beiruc@gmail.com",
+		"emp_address": "El pueblito"
+	}, {
+        "emp_id": 2,
+		"emp_name": "Leo",
+		"emp_lastname": "Dan",
+		"emp_phone": "4421565824",
+		"emp_email": "leuki@gmail.com",
+		"emp_address": "Guanatos"
+	}, {
+        "emp_id": 3,
+		"emp_name": "Oswal",
+		"emp_lastname": "De Paco",
+		"emp_phone": "4421565925",
+		"emp_email": "oswal@gmail.com",
+		"emp_address": "San Juan del River"
+	}]
+
+}

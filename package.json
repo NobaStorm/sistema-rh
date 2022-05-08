@@ -4,18 +4,32 @@
   "description": "An API REST using expressjs APP RH",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NobaStorm/sistema-rh.git"
   },
   "keywords": [
     "api",
     "rest",
     "RH",
     "express",
-    "node.js"
+    "node.js",
+    "jwt",
+    "mysql"
   ],
   "author": "Armando Mtz., Alan Medin, Diego Avalos",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NobaStorm/sistema-rh/issues"
+  },
+  "homepage": "https://github.com/NobaStorm/sistema-rh#readme",
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.16"
   }
 }
