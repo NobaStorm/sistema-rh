@@ -1,34 +1,41 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Agregar</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/checkout/">
+<head>
+  <meta charset="utf-8">
+  <title>Agregar</title>
 
-    
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/checkout/">
+  <!-- Bootstrap core CSS -->
+  <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="agregar2.css" rel="stylesheet">
 
-    <!-- Bootstrap core CSS -->
-<link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src = "./js/agregar.js" > </script>
+</head>
 
-    
-    <!-- Custom styles for this template -->
-    <link href="agregar2.css" rel="stylesheet">
-  </head>
-  <body class="bg-light">
-    
-<div class="container">
-  <main>
-    <div class="py-5 text-center">
-    </div>
+<body class="bg-light">
 
-    <div class="row g-5">
+  <div class="container">
+    <main>
+      <div class="py-5 text-center">
+      </div>
+
+      <div class="row g-5">
 
       </div>
       <div class="col-md-7 col-lg-8">
         <h4 class="mb-3">Agregar empleado</h4>
         <form>
           <div class="row g-3">
+
+            <div class="col-sm-6">
+              <label for="ID" class="form-label">ID</label>
+              <input type="text" class="form-control" id="emp_id" placeholder="EMP_ID" value="" required>
+            </div>
+            <br>
+
             <div class="col-sm-6">
               <label for="firstName" class="form-label">Nombre</label>
               <input type="text" class="form-control" id="name" placeholder="Nombre" value="" required>
@@ -55,19 +62,20 @@
             </div>
 
 
-          <hr class="my-4">
+            <hr class="my-4">
 
-          <button class="w-100 btn btn-primary btn-lg" type="submit">Agregar</button>
+            <button class="w-100 btn btn-primary btn-lg" type="submit">Agregar</button>
         </form>
       </div>
-    </div>
+  </div>
   </main>
 
-</div>
+  </div>
 
 
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
-      <script src="form-validation.js"></script>
-  </body>
+  <script src="form-validation.js"></script>
+</body>
+
 </html>
