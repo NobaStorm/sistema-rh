@@ -36,7 +36,9 @@ empleados.delete("/:id([0-9])", async (req, res, next) => {
 empleados.put("/:id([0-9])", async (req, res, next) =>{
     const { EMP_NAME, EMP_LASTNAME, EMP_PHONE, EMP_EMAIL, EMP_ADDRESS } = req.body;
 
-    if (EMP_NAME && EMP_LASTNAME && EMP_PHONE && EMP_ADDRESS) {
+    console.log(req.body);
+
+    if (EMP_NAME && EMP_LASTNAME && EMP_PHONE && EMP_EMAIL && EMP_ADDRESS) {
         let query = `UPDATE empleados SET EMP_NAME='${EMP_NAME}'`
         query += `,EMP_LASTNAME='${EMP_LASTNAME}',EMP_PHONE='${EMP_PHONE}'`
         query += `,EMP_EMAIL='${EMP_EMAIL}',EMP_ADDRESS='${EMP_ADDRESS}' WHERE EMP_ID = ${req.params.id}`
@@ -55,6 +57,15 @@ empleados.put("/:id([0-9])", async (req, res, next) =>{
 empleados.get("/", async (req, res, next) => {
     const emp = await db.query("SELECT * FROM empleados");
     return res.status(200).json({ code: 200, message: emp })
+});
+
+
+empleados.get('/:id([0-9])', async (req, res, next) => {
+    const id = req.params.id;
+    const emp = await db.query("SELECT * FROM empleados WHERE emp_id = '"+id+"'")
+
+    return res.status(200).json({ code: 200, message: emp});
+    
 });
 
 empleados.get("/:name([A-Za-z]+)", async (req, res, next) => {

@@ -68,7 +68,7 @@ function displayEmployees(employees) {
             `            <td>${employees[i].EMP_PHONE}</td>\n` +
             `            <td>${employees[i].EMP_EMAIL}</td>\n` +
             `            <td>${employees[i].EMP_ADDRESS}</td>\n` +
-            `            <td><a class="btn btn-success" href="agregar2.html?${employees[i].EMP_NAME}"  role="button">Editar</a></td>\n` +
+            `            <td><a class="btn btn-success" href="actualizar.html?${employees[i].EMP_ID}"  role="button">Editar</a></td>\n` +
             //`            <td><button class="btn btn-success" id =${employees[i].EMP_ID} type="button">Editar</button></td>\n` +
             `            <td><button class="btn btn-outline-danger" type="button">Eliminar</button></td>\n` +
             `        </tr>`
