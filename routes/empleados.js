@@ -8,7 +8,7 @@ const db = require('../config/database')
 empleados.post("/", async (req, res, next) => {
     const { EMP_NAME, EMP_LASTNAME, EMP_PHONE, EMP_EMAIL, EMP_ADDRESS } = req.body;
 
-    if (EMP_NAME && EMP_LASTNAME && EMP_PHONE && EMP_ADDRESS) {
+    if (EMP_NAME && EMP_LASTNAME && EMP_PHONE && EMP_EMAIL && EMP_ADDRESS) {
         let query = "INSERT INTO empleados (EMP_NAME, EMP_LASTNAME, EMP_PHONE, EMP_EMAIL, EMP_ADDRESS)";
         query += ` VALUES('${EMP_NAME}', '${EMP_LASTNAME}', '${EMP_PHONE}', '${EMP_EMAIL}', '${EMP_ADDRESS}')`;
         const rows = await db.query(query);

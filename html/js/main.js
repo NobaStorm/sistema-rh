@@ -13,7 +13,7 @@ function init() {
         }
         loadEmployees();
         document.querySelector('.btn-outline-primary').addEventListener('click', loadEmployeesName)
-        document.querySelector('.btn-success').addEventListener('click', agregarEmp)
+        document.querySelector('.btn-primary').addEventListener('click', agregarEmp)
     }
     else {
         window.location.href = "login2.html";
@@ -59,6 +59,7 @@ function loadEmployeesName() {
 }
 
 function displayEmployees(employees) {
+    
     var table_node = document.getElementsByTagName("table")[0];
     for (var i = 0; i < employees.length; i++) {
         table_node.innerHTML += `       <tr>\n` +
@@ -68,15 +69,45 @@ function displayEmployees(employees) {
             `            <td>${employees[i].EMP_PHONE}</td>\n` +
             `            <td>${employees[i].EMP_EMAIL}</td>\n` +
             `            <td>${employees[i].EMP_ADDRESS}</td>\n` +
-            `            <td><a class="btn btn-success" href="actualizar.html?${employees[i].EMP_ID}"  role="button">Editar</a></td>\n` +
-            //`            <td><button class="btn btn-success" id =${employees[i].EMP_ID} type="button">Editar</button></td>\n` +
-            `            <td><button class="btn btn-outline-danger" type="button">Eliminar</button></td>\n` +
+            `            <td><a class="btn  btn-outline-success" href="actualizar.html?${employees[i].EMP_ID}"  role="button">Editar</a></td>\n` +
+            `            <td><a class="btn btn-outline-danger" type="button" onClick='borrar_elemento(${employees[i].EMP_ID});' >Eliminar</a></td>\n` +
             `        </tr>`
     }
 
+    
+
 }
 
+function borrar_elemento(id){
+
+    var opcion = confirm('¿Estas Seguro que deseas Borrar este Registro?');
+    if(opcion === true){
+        axios({
+            method: 'delete',
+            url: `http://localhost:3000/empleados/${id}`,
+
+            headers: {
+                'Authorization': "bearer " + localStorage.getItem("token")
+            }
+        }).then(function(res) {
+            console.log(res)
+            if (res.data.code === 200){
+                alert("Usuario Eliminado Correctamente");
+                window.location.href = "main.html";
+            }
+            else{
+                alert("Error al Eliminar Usuario");
+            }
+    
+        }).catch(function(err){
+            console.log(err);
+        })
+    }else{
+      alert("No se borró el usuario")
+    }
+  }
+
 function agregarEmp(){
-    window.location.href = "agregar2.html";
+    window.location.href = "agregarUsr.html";
 
 }
