@@ -23,7 +23,6 @@ function init() {
 
 function loadEmployees() {
     axios.get(url + "/empleados", headers).then(function (res) {
-        console.log(res);
         employees_l = res.data.message.length;
         displayEmployees(res.data.message);
 
@@ -38,7 +37,6 @@ function loadEmployeesName() {
         loadEmployees();
     }
     axios.get(url + `/empleados/${nombre}`, headers).then(function (res) {
-        console.log(res);
         
         var table_node = document.getElementsByTagName("table")[0];
         table_node.innerHTML = `       <tr>\n` +
@@ -90,7 +88,6 @@ function borrarEmpleado(id){
                 'Authorization': "bearer " + localStorage.getItem("token")
             }
         }).then(function(res) {
-            console.log(res)
             if (res.data.code === 200){
                 alert("Usuario Eliminado Correctamente");
                 window.location.href = "main.html";

@@ -7,9 +7,7 @@ const db = require('../config/database')
 admin.post("/login", async (req, res, next) => {
     const { ADMIN_EMAIL, ADMIN_PASSWORD } = req.body;
     const query = `SELECT * FROM admin WHERE admin_email = '${ADMIN_EMAIL}' AND admin_password = '${ADMIN_PASSWORD}';`;
-    console.log(query);
     const rows = await db.query(query);
-    console.log(rows);
 
     if (ADMIN_EMAIL && ADMIN_PASSWORD) {
         if (rows.length == 1) {
