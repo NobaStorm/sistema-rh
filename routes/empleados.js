@@ -23,7 +23,7 @@ empleados.post("/", async (req, res, next) => {
     return res.status(500).json({ code: 500, message: "Campos Incompletos" });
 })
 
-empleados.delete("/:id([0-9])", async (req, res, next) => {
+empleados.delete("/:id([0-9]{1,6})", async (req, res, next) => {
     const query = `DELETE FROM empleados WHERE emp_id = ${req.params.id}`;
     const rows = await db.query(query);
     if(rows.affectedRows == 1){
@@ -33,7 +33,7 @@ empleados.delete("/:id([0-9])", async (req, res, next) => {
     return res.status(404).json({code: 404, message: "El empleado que quiere eliminar, no existe"});
 })
 
-empleados.put("/:id([0-9])", async (req, res, next) =>{
+empleados.put("/:id([0-9]{1,6})", async (req, res, next) =>{
     const { EMP_NAME, EMP_LASTNAME, EMP_PHONE, EMP_EMAIL, EMP_ADDRESS } = req.body;
 
     console.log(req.body);
@@ -60,7 +60,7 @@ empleados.get("/", async (req, res, next) => {
 });
 
 
-empleados.get('/:id([0-9])', async (req, res, next) => {
+empleados.get('/:id([0-9]{1,6})', async (req, res, next) => {
     const id = req.params.id;
     const emp = await db.query("SELECT * FROM empleados WHERE emp_id = '"+id+"'")
 

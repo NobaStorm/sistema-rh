@@ -16,6 +16,7 @@ function init() {
         var paramarr = paramstr.split("&");
         var params = paramarr[0]
         loadInfo(params);
+        
 
 
         document.querySelector(".btn-primary").addEventListener('click', updateInfo)
@@ -52,8 +53,6 @@ function updateInfo() {
     var emp_phone = document.getElementById('phone').value;
     var emp_email = document.getElementById('email').value;
     var emp_address = document.getElementById('address').value;
-
-    console.log(emp_id);
 
     axios({
         method: 'put',

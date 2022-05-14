@@ -14,6 +14,7 @@ function init() {
         loadEmployees();
         document.querySelector('.btn-outline-primary').addEventListener('click', loadEmployeesName)
         document.querySelector('.btn-primary').addEventListener('click', agregarEmp)
+        document.querySelector('.btn-outline-danger').addEventListener('click', exit)
     }
     else {
         window.location.href = "login2.html";
@@ -24,7 +25,6 @@ function loadEmployees() {
     axios.get(url + "/empleados", headers).then(function (res) {
         console.log(res);
         employees_l = res.data.message.length;
-        console.log(employees_l);
         displayEmployees(res.data.message);
 
     }).catch(function (err) {
@@ -70,7 +70,7 @@ function displayEmployees(employees) {
             `            <td>${employees[i].EMP_EMAIL}</td>\n` +
             `            <td>${employees[i].EMP_ADDRESS}</td>\n` +
             `            <td><a class="btn  btn-outline-success" href="actualizar.html?${employees[i].EMP_ID}"  role="button">Editar</a></td>\n` +
-            `            <td><a class="btn btn-outline-danger" type="button" onClick='borrar_elemento(${employees[i].EMP_ID});' >Eliminar</a></td>\n` +
+            `            <td><a class="btn btn-outline-danger" type="button" onClick='borrarEmpleado(${employees[i].EMP_ID});' >Eliminar</a></td>\n` +
             `        </tr>`
     }
 
@@ -78,7 +78,7 @@ function displayEmployees(employees) {
 
 }
 
-function borrar_elemento(id){
+function borrarEmpleado(id){
 
     var opcion = confirm('¿Estas Seguro que deseas Borrar este Registro?');
     if(opcion === true){
@@ -109,5 +109,16 @@ function borrar_elemento(id){
 
 function agregarEmp(){
     window.location.href = "agregarUsr.html";
+
+}
+
+function exit(){
+    var opcion = confirm('¿Quieres Cerrar sesión?');
+    if (opcion === true){
+        localStorage.removeItem("token");
+        window.location.href = "login2.html";
+
+    }
+    
 
 }

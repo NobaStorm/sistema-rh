@@ -10,8 +10,6 @@ function login() {
     var mail = document.getElementById('email').value;
     var pass = document.getElementById('password').value;
 
-    console.log(mail, pass);
-
     axios({
         method: 'post',
         url: 'http://localhost:3000/admin/login',

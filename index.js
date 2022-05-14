@@ -21,7 +21,6 @@ app.use(express.urlencoded({ extended: true })); //Sacar info de la URL
 
 //respuesta a la solicitud
 app.get("/", index);
-
 app.use("/admin", admin)
 app.use(auth);
 app.use("/empleados", empleados);
