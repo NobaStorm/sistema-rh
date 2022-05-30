@@ -26,6 +26,6 @@ app.use(auth);
 app.use("/empleados", empleados);
 app.use(notFound);
 
-app.listen(process.env.PORT || 8080, () => {//escuchar las solicitudes
+app.listen(process.env.PORT || 5000, () => {//escuchar las solicitudes
     console.log("Server is runing... ");
 });
