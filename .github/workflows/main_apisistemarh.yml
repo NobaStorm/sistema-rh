@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'APIsistemarh'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BED43D77CAF84B3E8AF274F13F3424AB }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E9F4672AFDED414DBA0BB24D8A7CA7B8 }}
           package: .
